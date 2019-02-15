@@ -1,13 +1,19 @@
-sudo: false
+dist: xenial
+os:
+- linux
+- osx
+env:
+- PYENV_NATIVE_EXT=
+- PYENV_NATIVE_EXT=1
+language: c
+
 install: git clone --depth 1 https://github.com/sstephenson/bats.git
 script: make test
-language: c
-env:
-  - PYENV_NATIVE_EXT=
-  - PYENV_NATIVE_EXT=1
+
 notifications:
   email:
     on_success: never
+
 deploy:
   provider: releases
   api_key:
